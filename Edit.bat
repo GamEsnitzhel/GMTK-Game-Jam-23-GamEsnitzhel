@@ -1,0 +1,1 @@
+C:\Users\games\OneDrive\Documents\GitHub\GMTK-23\Editor\Editor\Godot_v4.1-rc3_win64_console.exe C:\Users\games\OneDrive\Documents\GitHub\GMTK-23\Source\project.godot
