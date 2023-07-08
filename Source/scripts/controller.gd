@@ -75,7 +75,12 @@ func EnemyDied(enemy: Enemy) -> void:
 
 
 
-
+func PlayerSwitch(new = null) -> void:
+	if new != null:
+		_currentControl = new;
+	else:
+		if _currentControl == _ControlEnum.PLAYER: _currentControl = _ControlEnum.ENEMY;
+		elif _currentControl == _ControlEnum.ENEMY: _currentControl = _ControlEnum.PLAYER;
 
 func PlayerDir(new: float) -> void:
 	_currentPlayerDir = new;

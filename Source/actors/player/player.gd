@@ -37,6 +37,7 @@ const animationFromStates: Array[String] = [
 func _process(_delta) -> void:
 	UpdateMoveState();
 	UpdateAnimation();
+	if position.y >= 270: die();
 
 func _physics_process(delta) -> void:
 	# Schmovement Vars
