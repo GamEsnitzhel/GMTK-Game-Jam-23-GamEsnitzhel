@@ -28,6 +28,11 @@ const jumpSpeed: float = -400 * mult;
 @onready var sprite: AnimatedSprite2D = $sprite;
 @onready var active: AnimatedSprite2D = $active;
 
+@onready var audio_jump: AudioStreamPlayer2D = $jump;
+@onready var audio_walk: AudioStreamPlayer2D = $walk;
+@onready var audio_die:  AudioStreamPlayer2D = $ded;
+@onready var audio_hit:  AudioStreamPlayer2D = $kil;
+
 const animationFromStates: Array[String] = [
 	"walk",
 	"walk",
@@ -41,6 +46,7 @@ const animationFromStates: Array[String] = [
 func _process(_delta) -> void:
 	UpdateMoveState();
 	UpdateAnimation();
+	UpdateWalkAudio();
 	if global_position.y >= 270: die();
 
 func _physics_process(delta) -> void:
@@ -56,7 +62,9 @@ func _physics_process(delta) -> void:
 	targetVel.x *= speed.x
 	velocity = lerp(velocity, targetVel, delta);
 	# Do jumping
-	if (input.isJumping && is_on_floor()): velocity.y = jumpSpeed;
+	if (input.isJumping && is_on_floor()):
+		velocity.y = jumpSpeed;
+		audio_jump.play();
 	# Move
 	move_and_slide();
 
@@ -72,7 +80,11 @@ func UpdateMoveState() -> void:
 			if abs(velocity.x) < 10:
 				state = MovementStates.IDLE;
 			if (!is_on_floor()):
-				state = MovementStates.JUMP;
+				if (velocity.y <= 0):
+					state = MovementStates.JUMP;
+				else:
+					state = MovementStates.AIR;
+					sprite.stop()
 		MovementStates.JUMP:
 			if sprite.animation_finished:
 				state = MovementStates.AIR;
@@ -116,12 +128,18 @@ func BodyEntered(body):
 			body.die();
 			sprite.play("jump")
 			velocity.y = jumpSpeed;
+			audio_hit.play()
 		else: die()
 	elif body is Spike:
 		die();
 
 func die():
 	if state != MovementStates.DEAD:
+		audio_die.play()
 		sprite.play("die");
 		state = MovementStates.DEAD;
 		velocity.y = 0;
+
+func UpdateWalkAudio() -> void:
+	if sprite.animation != "walk": return;
+	if sprite.frame in [1, 5]: audio_walk.play()
