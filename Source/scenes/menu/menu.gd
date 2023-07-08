@@ -2,4 +2,4 @@ extends Node2D
 
 
 func _ready():
-	get_tree().change_scene_to_file("res://scenes/levels/level0.tscn")
+	Trans.ChangeSceneToFile("res://scenes/levels/level0.tscn")

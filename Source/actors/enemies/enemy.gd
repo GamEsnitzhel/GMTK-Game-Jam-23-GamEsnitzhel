@@ -25,7 +25,7 @@ func _input(event: InputEvent):
 
 func _process(delta) -> void:
 	var newScale: Vector2 = Vector2.ONE
-	if hasMouse: newScale *= 1.1
+	if hasMouse: newScale *= 1.2
 	sprite.scale = lerp(sprite.scale, newScale, delta * 15)
 	active.visible = Controller.IsCurrentEnemy(self);
 	if !active.is_playing(): active.play("default")

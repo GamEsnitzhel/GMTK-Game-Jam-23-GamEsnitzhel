@@ -17,7 +17,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+Trans="*res://global/transitions/transitions.tscn"
 Controller="*res://scripts/controller.gd"
+Audio="*res://global/audio/audio.tscn"
 
 [display]
 
