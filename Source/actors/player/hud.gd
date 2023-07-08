@@ -42,3 +42,5 @@ func _process(delta):
 	else:
 		$what/enemy.scale = lerp($what/enemy.scale, Vector2.ONE, delta * 10)
 		$what/enemy.modulate = lerp($what/enemy.modulate, Color.WHITE, delta * 10)
+
+	timer.text = Time.get_time_string_from_unix_time(int(Trans.GetTime()));
