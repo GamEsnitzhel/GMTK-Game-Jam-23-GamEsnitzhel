@@ -37,6 +37,14 @@ movie_writer/disable_vsync=true
 
 enabled=PackedStringArray("res://addons/death_timer/plugin.cfg")
 
+[filesystem]
+
+import/blender/enabled=false
+
+[gui]
+
+theme/custom_font="res://sprites/ftons/ZeroesThree.ttf"
+
 [input]
 
 ui_left={

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://clm86k5pmfypi"]
+
+[ext_resource type="Script" path="res://actors/helper/goal/goal.gd" id="1_yy3v5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ul2g"]
+
+[node name="goal" type="Area2D"]
+z_index = 27
+script = ExtResource("1_yy3v5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8ul2g")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,4 +1,17 @@
-[gd_resource type="AudioBusLayout" format=3 uid="uid://bpkasalyy0lk5"]
+[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://bpkasalyy0lk5"]
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_tjn7x"]
+resource_name = "Reverb"
+predelay_msec = 120.0
+room_size = 0.5
+
+[sub_resource type="AudioEffectDelay" id="AudioEffectDelay_emy0l"]
+resource_name = "Delay"
+dry = 0.2
 
 [resource]
 bus/0/volume_db = -11.952
+bus/0/effect/0/effect = SubResource("AudioEffectReverb_tjn7x")
+bus/0/effect/0/enabled = false
+bus/0/effect/1/effect = SubResource("AudioEffectDelay_emy0l")
+bus/0/effect/1/enabled = false

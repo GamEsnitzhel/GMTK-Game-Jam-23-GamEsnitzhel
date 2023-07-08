@@ -113,3 +113,14 @@ func PlayerJump() -> void:
 
 func PlayerSpeed(new: float) -> void:
 	stats.currentPlayerSpeed = new;
+
+func PlayerSlowdown(slow: float, length: float) -> void:
+	var tweenETS = get_tree().create_tween();
+	var tweenATS = get_tree().create_tween();
+	tweenETS.tween_property(Engine, "time_scale", slow, 0.5);
+	tweenATS.tween_property(AudioServer, "playback_speed_scale", slow, 0.5);
+	await get_tree().create_timer(length).timeout;
+	tweenETS = get_tree().create_tween();
+	tweenATS = get_tree().create_tween();
+	tweenETS.tween_property(Engine, "time_scale", 1.0, 0.5);
+	tweenATS.tween_property(AudioServer, "playback_speed_scale", 1.0, 0.5);
