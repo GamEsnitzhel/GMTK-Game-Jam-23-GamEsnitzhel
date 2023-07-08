@@ -124,3 +124,5 @@ func PlayerSlowdown(slow: float, length: float) -> void:
 	tweenATS = get_tree().create_tween();
 	tweenETS.tween_property(Engine, "time_scale", 1.0, 0.5);
 	tweenATS.tween_property(AudioServer, "playback_speed_scale", 1.0, 0.5);
+
+

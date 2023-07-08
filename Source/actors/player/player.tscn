@@ -1,4 +1,4 @@
-[gd_scene load_steps=111 format=3 uid="uid://dlclvcfn1ww0r"]
+[gd_scene load_steps=110 format=3 uid="uid://dlclvcfn1ww0r"]
 
 [ext_resource type="Script" path="res://actors/player/player.gd" id="1_f8vjr"]
 [ext_resource type="Texture2D" uid="uid://08gvu2egq2oh" path="res://sprites/player/player_air.png" id="2_tpf6i"]
@@ -476,11 +476,12 @@ frame_2/duration = 1.0
 frame_3/texture = ExtResource("32_r0uwx")
 frame_3/duration = 1.0
 
-[sub_resource type="SystemFont" id="SystemFont_ho1tt"]
-font_names = PackedStringArray("Zeroes 3")
-
 [sub_resource type="LabelSettings" id="LabelSettings_sk80x"]
-font = SubResource("SystemFont_ho1tt")
+font_size = 41
+font_color = Color(0, 0, 0, 1)
+outline_size = 7
+shadow_color = Color(0, 0, 0, 0.392157)
+shadow_offset = Vector2(7, 7)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8utbf"]
 streams_count = 4
@@ -697,15 +698,19 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AnimatedTexture_ikkmm")
 
-[node name="Label" type="Label" parent="hud/hud"]
+[node name="tiem" type="Label" parent="hud/hud"]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = 12
+anchor_top = 1.0
 anchor_right = 1.0
-offset_bottom = 23.0
+anchor_bottom = 1.0
+offset_top = -59.0
 grow_horizontal = 2
-text = "Time:"
+grow_vertical = 0
+text = "69:420:1337"
 label_settings = SubResource("LabelSettings_sk80x")
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="jump" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_8utbf")

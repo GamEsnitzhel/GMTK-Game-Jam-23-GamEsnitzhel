@@ -16,6 +16,7 @@ extends Control
 @onready var enemyspeedtwo = $what/enemy/direction2/left2
 @onready var enemyspeedthree = $what/enemy/direction2/left3
 
+@onready var timer = $tiem
 
 func _ready() -> void:
 	circleplaya.texture.current_frame = 0;
