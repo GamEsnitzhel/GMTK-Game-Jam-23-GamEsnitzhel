@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://dxt0m6pvac7xd"]
+
+[ext_resource type="Script" path="res://actors/enemies/enemy.gd" id="1_udviu"]
+[ext_resource type="Texture2D" uid="uid://cj72utnib6wt5" path="res://sprites/enemy/enemy_idle_i_think.png" id="2_wucqa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ihbws"]
+size = Vector2(113, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fypj"]
+atlas = ExtResource("2_wucqa")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bm4bo"]
+atlas = ExtResource("2_wucqa")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oew8p"]
+atlas = ExtResource("2_wucqa")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jx4m"]
+atlas = ExtResource("2_wucqa")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ee622"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8fypj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bm4bo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oew8p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5jx4m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="enemy" type="CharacterBody2D"]
+input_pickable = true
+script = ExtResource("1_udviu")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 15)
+shape = SubResource("RectangleShape2D_ihbws")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ee622")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
