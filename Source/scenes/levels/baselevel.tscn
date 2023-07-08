@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbytne7tklibg"]
+
+[ext_resource type="Script" path="res://scripts/baselevel.gd" id="1_1csqu"]
+[ext_resource type="PackedScene" uid="uid://ibpwiwa3dfjr" path="res://actors/helper/deathshower.tscn" id="2_1oslm"]
+
+[node name="baselevel" type="Node2D"]
+script = ExtResource("1_1csqu")
+
+[node name="deathshower" parent="." instance=ExtResource("2_1oslm")]

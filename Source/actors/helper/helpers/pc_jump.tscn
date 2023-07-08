@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://x6r7yeuixiwo"]
+
+[ext_resource type="PackedScene" uid="uid://cql3f836oakn0" path="res://actors/helper/playerchecker.tscn" id="1_5okex"]
+
+[node name="pc_jump" type="Node2D"]
+
+[node name="playerchecker" parent="." instance=ExtResource("1_5okex")]
+force_sprite = true

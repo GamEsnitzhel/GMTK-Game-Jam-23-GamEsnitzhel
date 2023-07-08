@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmio637vxismg"]
+
+[ext_resource type="PackedScene" uid="uid://cql3f836oakn0" path="res://actors/helper/playerchecker.tscn" id="1_4bgdv"]
+
+[node name="pc_jump" type="Node2D"]
+
+[node name="playerchecker" parent="." instance=ExtResource("1_4bgdv")]
+function = "switch"
+force_sprite = true
+
+[node name="AnimatedSprite2D" parent="playerchecker" index="1"]
+frame = 1
+
+[editable path="playerchecker"]

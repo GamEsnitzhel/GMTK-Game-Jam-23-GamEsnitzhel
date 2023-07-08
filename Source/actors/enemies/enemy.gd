@@ -9,6 +9,7 @@ const jumpSpeed: float = -250;
 
 # Variables for referencing
 @onready var sprite: AnimatedSprite2D = $sprite;
+@onready var active: AnimatedSprite2D = $active;
 
 func _ready():
 	sprite.play("default")
@@ -21,6 +22,14 @@ func _input(event: InputEvent):
 	if !event is InputEventMouseButton: return;
 	if event.button_index == MOUSE_BUTTON_LEFT && event.pressed:
 		Controller.SetEnemy(self);
+
+func _process(delta) -> void:
+	var newScale: Vector2 = Vector2.ONE
+	if hasMouse: newScale *= 1.1
+	sprite.scale = lerp(sprite.scale, newScale, delta * 15)
+	active.visible = Controller.IsCurrentEnemy(self);
+	if !active.is_playing(): active.play("default")
+
 
 func _physics_process(delta) -> void:
 	# Schmovement Vars

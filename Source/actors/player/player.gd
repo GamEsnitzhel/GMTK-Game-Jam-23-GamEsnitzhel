@@ -17,12 +17,13 @@ enum MovementStates {
 var state: MovementStates = MovementStates.IDLE;
 
 
-const speed: Vector2 = Vector2(500, 200);
-const jumpSpeed: float = -250;
+const speed: Vector2 = Vector2(400, 300);
+const jumpSpeed: float = -400;
 
 
 # Variables for referencing
 @onready var sprite: AnimatedSprite2D = $sprite;
+@onready var active: AnimatedSprite2D = $active;
 
 const animationFromStates: Array[String] = [
 	"walk",
@@ -37,7 +38,7 @@ const animationFromStates: Array[String] = [
 func _process(_delta) -> void:
 	UpdateMoveState();
 	UpdateAnimation();
-	if position.y >= 270: die();
+	if global_position.y >= 270: die();
 
 func _physics_process(delta) -> void:
 	# Schmovement Vars
@@ -100,15 +101,19 @@ func UpdateAnimation() -> void:
 		_:
 			if !sprite.is_playing():
 				sprite.play(animationFromStates[state])
+	active.visible = Controller.IsControlPlayer();
+	if !active.is_playing(): active.play("default")
 
 
 func BodyEntered(body):
-	if !body is Enemy: return;
-	if velocity.y > 10:
-		body.die();
-		sprite.play("jump")
-		velocity.y = jumpSpeed;
-	else: die()
+	if body is Enemy:
+		if velocity.y > 1:
+			body.die();
+			sprite.play("jump")
+			velocity.y = jumpSpeed;
+		else: die()
+	elif body is Spike:
+		die();
 
 func die():
 	if state != MovementStates.DEAD:

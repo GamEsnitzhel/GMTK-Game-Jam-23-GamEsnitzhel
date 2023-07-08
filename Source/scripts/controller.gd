@@ -4,6 +4,12 @@ class ActorInput extends RefCounted:
 	var xInput: float = 0.0;
 	var isJumping: bool = false;
 
+
+class PlayerStats extends RefCounted:
+	var playerJump: bool = false;
+	var currentPlayerDir: float = 1;
+	var currentPlayerSpeed: float = 0.5;
+
 enum _ControlEnum {
 	NULLPTR,
 	PLAYER,
@@ -15,9 +21,7 @@ enum _ControlEnum {
 
 var currentEnemy: Enemy = null;
 
-var _playerJump: bool = false;
-var _currentPlayerDir: float = 1;
-var _currentPlayerSpeed: float = 0.2;
+var stats: PlayerStats = PlayerStats.new()
 
 
 var _currentControl: _ControlEnum = _ControlEnum.PLAYER;
@@ -30,9 +34,14 @@ func SetControlInvalid() -> void: _currentControl = _ControlEnum.NULLPTR;
 func SetControlPlayer() -> void: _currentControl = _ControlEnum.PLAYER;
 func SetControlEnemy() -> void: _currentControl = _ControlEnum.ENEMY;
 
+
+func IsCurrentEnemy(test: Enemy) -> bool:
+	return IsControlEnemy() && currentEnemy == test;
+
 func SetEnemy(new: Enemy) -> void:
 	_currentControl = _ControlEnum.ENEMY;
 	currentEnemy = new;
+
 
 func GetInputPlayer() -> ActorInput:
 	var input: ActorInput = ActorInput.new();
@@ -40,11 +49,11 @@ func GetInputPlayer() -> ActorInput:
 	if IsControlPlayer(): input = GetInput();
 	# If it's enemy control then just go right
 	elif IsControlEnemy():
-		input.xInput = _currentPlayerSpeed * _currentPlayerDir;
+		input.xInput = stats.currentPlayerSpeed * stats.currentPlayerDir;
 	# *always*
 	if !input.isJumping:
-		input.isJumping = _playerJump;
-	_playerJump = false;
+		input.isJumping = stats.playerJump;
+	stats.playerJump = false;
 	# Return the generated input
 	return input;
 
@@ -83,13 +92,13 @@ func PlayerSwitch(new = null) -> void:
 		elif _currentControl == _ControlEnum.ENEMY: _currentControl = _ControlEnum.PLAYER;
 
 func PlayerDir(new: float) -> void:
-	_currentPlayerDir = new;
+	stats.currentPlayerDir = new;
 
 func PlayerReverse() -> void:
-	_currentPlayerDir *= -1;
+	stats.currentPlayerDir *= -1;
 
 func PlayerJump() -> void:
-	_playerJump = true;
+	stats.playerJump = true;
 
 func PlayerSpeed(new: float) -> void:
-	_currentPlayerSpeed = new;
+	stats.currentPlayerSpeed = new;

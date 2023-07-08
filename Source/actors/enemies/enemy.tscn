@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dxt0m6pvac7xd"]
+[gd_scene load_steps=10 format=3 uid="uid://dxt0m6pvac7xd"]
 
 [ext_resource type="Script" path="res://actors/enemies/enemy.gd" id="1_udviu"]
 [ext_resource type="Texture2D" uid="uid://cj72utnib6wt5" path="res://sprites/enemy/enemy_idle_i_think.png" id="2_wucqa"]
+[ext_resource type="SpriteFrames" uid="uid://cojqmqc13ilri" path="res://actors/active_frames.tres" id="3_lvs8y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ihbws"]
-size = Vector2(113, 100)
+size = Vector2(110, 90)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8fypj"]
 atlas = ExtResource("2_wucqa")
@@ -52,6 +53,12 @@ shape = SubResource("RectangleShape2D_ihbws")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ee622")
+
+[node name="active" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(0, -64)
+sprite_frames = ExtResource("3_lvs8y")
+frame_progress = 0.149333
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

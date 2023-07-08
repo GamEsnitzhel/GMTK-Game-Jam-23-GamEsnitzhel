@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://qjoo4af43qab"]
+
+[ext_resource type="Script" path="res://actors/enemies/spike/spike.gd" id="1_vkdt5"]
+[ext_resource type="Texture2D" uid="uid://bqng3kiu6lb1o" path="res://sprites/backgroubnd/tileset.png" id="2_1dsdy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8uskn"]
+atlas = ExtResource("2_1dsdy")
+region = Rect2(256, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqm31"]
+atlas = ExtResource("2_1dsdy")
+region = Rect2(320, 128, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xjigo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8uskn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vqm31")
+}],
+"loop": false,
+"name": &"default",
+"speed": 0.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_adoru"]
+size = Vector2(44, 13)
+
+[node name="spike" type="CharacterBody2D"]
+script = ExtResource("1_vkdt5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xjigo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 25.5)
+shape = SubResource("RectangleShape2D_adoru")
