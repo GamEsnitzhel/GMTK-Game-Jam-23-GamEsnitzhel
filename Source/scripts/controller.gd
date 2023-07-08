@@ -3,6 +3,7 @@ extends Node;
 class ActorInput extends RefCounted:
 	var xInput: float = 0.0;
 	var isJumping: bool = false;
+	var isHoldingJump: bool = true;
 
 
 class PlayerStats extends RefCounted:
@@ -30,6 +31,10 @@ var currentEnemy: Enemy = null;
 
 var stats: PlayerStats = PlayerStats.new()
 
+
+func _input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_RIGHT and event.pressed: currentEnemy = null;
 
 func IsControlValid() -> bool: return stats.currentControl != stats.WhoControls.NULLPTR;
 func IsControlPlayer() -> bool: return stats.currentControl == stats.WhoControls.PLAYER;
@@ -73,6 +78,7 @@ func GetInput() -> ActorInput:
 	var input: ActorInput = ActorInput.new();
 	input.xInput = Input.get_axis("ui_left", "ui_right");
 	input.isJumping = Input.is_action_pressed("ui_up");
+	input.isHoldingJump = Input.is_action_pressed("ui_up");
 	return input;
 
 

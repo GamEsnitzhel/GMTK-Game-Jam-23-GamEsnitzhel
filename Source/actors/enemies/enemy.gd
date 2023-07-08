@@ -13,6 +13,7 @@ const jumpSpeed: float = -250;
 
 func _ready():
 	sprite.play("default")
+	sprite.frame = randi_range(0, 3)
 
 func _exit_tree() -> void:
 	Controller.EnemyDied(self);

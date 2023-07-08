@@ -1,11 +1,53 @@
-[gd_scene load_steps=4 format=3 uid="uid://b883r0b2qcvky"]
+[gd_scene load_steps=5 format=3 uid="uid://b883r0b2qcvky"]
 
 [ext_resource type="PackedScene" uid="uid://ibpwiwa3dfjr" path="res://actors/helper/deathshower.tscn" id="1_6443p"]
 [ext_resource type="Script" path="res://scenes/levels/scripts/level0.gd" id="1_l32fo"]
 [ext_resource type="TileSet" uid="uid://syo34cyei64m" path="res://scenes/tilemap.tres" id="1_u51vk"]
+[ext_resource type="Texture2D" uid="uid://b5mj3m32vfycs" path="res://sprites/backgroubnd/actually_backgroubnt.png" id="2_ymwvb"]
 
 [node name="level0" type="Node2D"]
 script = ExtResource("1_l32fo")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+offset = Vector2(0, 183.05)
+transform = Transform2D(1, 0, 0, 1, 0, 183.05)
+scroll_base_scale = Vector2(0.5, 0.5)
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1920, 0)
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground/ParallaxLayer2"]
+offset_left = -1921.0
+offset_top = -2719.0
+offset_right = 2377.0
+offset_bottom = -99.0
+color = Color(0.363281, 0.75, 0.996094, 1)
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1920, 0)
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground/ParallaxLayer3"]
+offset_left = -1891.0
+offset_top = -108.0
+offset_right = 2999.0
+offset_bottom = 2512.0
+color = Color(0.363281, 0.988281, 0.363281, 1)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, -390.125)
+motion_offset = Vector2(-960, 0)
+motion_mirroring = Vector2(5760, 0)
+
+[node name="ActuallyBackgroubnt3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("2_ymwvb")
+offset = Vector2(-1920, 0)
+
+[node name="ActuallyBackgroubnt2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("2_ymwvb")
+offset = Vector2(1920, 0)
+
+[node name="ActuallyBackgroubnt" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("2_ymwvb")
 
 [node name="deathshower" parent="." instance=ExtResource("1_6443p")]
 position = Vector2(0, -300)

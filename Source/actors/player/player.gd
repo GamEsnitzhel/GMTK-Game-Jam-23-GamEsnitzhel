@@ -23,6 +23,7 @@ const mult: float = 1.1;
 const speed: Vector2 = Vector2(400 * mult, 300 * mult);
 const jumpSpeed: float = -400 * mult;
 
+var hasLetGo: bool = true
 
 # Variables for referencing
 @onready var sprite: AnimatedSprite2D = $sprite;
@@ -58,6 +59,8 @@ func _physics_process(delta) -> void:
 		input.xInput = 0;
 		input.isJumping = false;
 	var targetVel: Vector2 = Vector2(input.xInput, velocity.y + speed.y);
+	if velocity.y < 0 && hasLetGo && Controller.IsControlPlayer():
+		velocity.y += speed.y * 0.5 * delta;
 	# Get the new velocity (and set it)
 	targetVel.x *= speed.x
 	velocity = lerp(velocity, targetVel, delta);
@@ -65,6 +68,10 @@ func _physics_process(delta) -> void:
 	if (input.isJumping && is_on_floor()):
 		velocity.y = jumpSpeed;
 		audio_jump.play();
+		hasLetGo = false;
+	if Input.is_action_just_released("ui_up") && Controller.IsControlPlayer() && velocity.y < 0 && not hasLetGo:
+		velocity.y *= 0.75;
+		hasLetGo = true;
 	# Move
 	move_and_slide();
 
