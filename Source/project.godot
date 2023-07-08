@@ -14,6 +14,10 @@ config/name="GMTK23"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Controller="*res://scripts/controller.gd"
+
 [display]
 
 window/size/viewport_width=1280
