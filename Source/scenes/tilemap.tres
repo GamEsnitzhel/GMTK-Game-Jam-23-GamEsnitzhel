@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=15 format=3 uid="uid://syo34cyei64m"]
+[gd_resource type="TileSet" load_steps=19 format=3 uid="uid://syo34cyei64m"]
 
 [ext_resource type="Texture2D" uid="uid://bqng3kiu6lb1o" path="res://sprites/backgroubnd/tileset.png" id="1_tg3s0"]
 [ext_resource type="PackedScene" uid="uid://x6r7yeuixiwo" path="res://actors/helper/helpers/pc_jump.tscn" id="2_8e085"]
@@ -11,6 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://cleig7sbqfkn6" path="res://actors/helper/helpers/pc_player.tscn" id="8_x3hnn"]
 [ext_resource type="PackedScene" uid="uid://dxt0m6pvac7xd" path="res://actors/enemies/enemy.tscn" id="10_yyoyt"]
 [ext_resource type="PackedScene" uid="uid://qjoo4af43qab" path="res://actors/enemies/spike/spike.tscn" id="11_h2kol"]
+[ext_resource type="PackedScene" uid="uid://dxuhhaqx7x8bo" path="res://actors/helper/helpers/pc_speed1.tscn" id="12_p1kp6"]
+[ext_resource type="PackedScene" uid="uid://flmci03fa68e" path="res://actors/helper/helpers/pc_speed2.tscn" id="13_0qd18"]
+[ext_resource type="PackedScene" uid="uid://cwddi7aafnsi5" path="res://actors/helper/helpers/pc_speed3.tscn" id="14_2rawd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_37fvt"]
 texture = ExtResource("1_tg3s0")
@@ -401,6 +404,12 @@ scenes/1/scene = ExtResource("7_1bj8c")
 scenes/2/scene = ExtResource("10_yyoyt")
 scenes/3/scene = ExtResource("11_h2kol")
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_bq5gl"]
+resource_name = "Speeds"
+scenes/1/scene = ExtResource("12_p1kp6")
+scenes/2/scene = ExtResource("13_0qd18")
+scenes/3/scene = ExtResource("14_2rawd")
+
 [resource]
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
@@ -410,3 +419,4 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_37fvt")
 sources/1 = SubResource("TileSetScenesCollectionSource_qs3ys")
 sources/2 = SubResource("TileSetScenesCollectionSource_sgsc0")
+sources/3 = SubResource("TileSetScenesCollectionSource_bq5gl")

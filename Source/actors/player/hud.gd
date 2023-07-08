@@ -1,6 +1,9 @@
 extends Control
 
 
+@onready var circleplaya := $what/player/background
+@onready var circleenemy := $what/enemy/direction/background
+@onready var circlenemy2 := $what/enemy/direction2/background
 
 @onready var playerplayer = $what/player/player
 @onready var playerenemy = $what/player/enemy
@@ -13,7 +16,13 @@ extends Control
 @onready var enemyspeedtwo = $what/enemy/direction2/left2
 @onready var enemyspeedthree = $what/enemy/direction2/left3
 
-func _process(_delta):
+
+func _ready() -> void:
+	circleplaya.texture.current_frame = 0;
+	circleenemy.texture.current_frame = 1;
+	circlenemy2.texture.current_frame = 2;
+
+func _process(delta):
 	playerplayer.visible = Controller.IsControlPlayer();
 	playerenemy.visible = Controller.IsControlEnemy();
 
@@ -26,3 +35,9 @@ func _process(_delta):
 	enemyspeedthree.visible = speed > 0.66;
 
 	
+	if Controller.IsControlPlayer():
+		$what/enemy.scale = lerp($what/enemy.scale, Vector2(0.75, 0.75), delta * 10)
+		$what/enemy.modulate = lerp($what/enemy.modulate, Color(0.75, 0.75, 0.75, 0.75), delta * 10)
+	else:
+		$what/enemy.scale = lerp($what/enemy.scale, Vector2.ONE, delta * 10)
+		$what/enemy.modulate = lerp($what/enemy.modulate, Color.WHITE, delta * 10)

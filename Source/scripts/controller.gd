@@ -20,7 +20,7 @@ class PlayerStats extends RefCounted:
 	}
 	var playerJump: bool = false;
 	var currentPlayerDir: float = 1;
-	var currentPlayerSpeed: float = 0.5;
+	var currentPlayerSpeed: float = 0.6;
 	var currentControl = WhoControls.PLAYER;
 
 

@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxuhhaqx7x8bo"]
+
+[ext_resource type="PackedScene" uid="uid://cql3f836oakn0" path="res://actors/helper/playerchecker.tscn" id="1_s4fb5"]
+
+[node name="pc_jump" type="Node2D"]
+
+[node name="playerchecker" parent="." instance=ExtResource("1_s4fb5")]
+function = "speed"
+args = [0.9]
+force_sprite = true
+
+[node name="AnimatedSprite2D" parent="playerchecker" index="1"]
+frame = 2
+
+[editable path="playerchecker"]

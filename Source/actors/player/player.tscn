@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=3 uid="uid://dlclvcfn1ww0r"]
+[gd_scene load_steps=94 format=3 uid="uid://dlclvcfn1ww0r"]
 
 [ext_resource type="Script" path="res://actors/player/player.gd" id="1_f8vjr"]
 [ext_resource type="Texture2D" uid="uid://08gvu2egq2oh" path="res://sprites/player/player_air.png" id="2_tpf6i"]
@@ -355,7 +355,7 @@ size = Vector2(63, 121)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7raqg"]
 size = Vector2(67, 125)
 
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_sqiev"]
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_48opp"]
 frames = 4
 speed_scale = 5.0
 frame_0/texture = ExtResource("9_c00hl")
@@ -388,6 +388,17 @@ frame_2/duration = 1.0
 frame_3/texture = ExtResource("20_8cc25")
 frame_3/duration = 1.0
 
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_vt27c"]
+frames = 4
+speed_scale = 5.0
+frame_0/texture = ExtResource("9_c00hl")
+frame_1/texture = ExtResource("10_51i4a")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("11_ywjbx")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("12_37rkh")
+frame_3/duration = 1.0
+
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_1sqg8"]
 frames = 4
 speed_scale = 5.0
@@ -408,6 +419,17 @@ frame_1/duration = 1.0
 frame_2/texture = ExtResource("27_31hyu")
 frame_2/duration = 1.0
 frame_3/texture = ExtResource("28_8mfxq")
+frame_3/duration = 1.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_sqiev"]
+frames = 4
+speed_scale = 5.0
+frame_0/texture = ExtResource("9_c00hl")
+frame_1/texture = ExtResource("10_51i4a")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("11_ywjbx")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("12_37rkh")
 frame_3/duration = 1.0
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_x2co2"]
@@ -500,7 +522,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -88.0
 offset_bottom = -88.0
-texture = SubResource("AnimatedTexture_sqiev")
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AnimatedTexture_48opp")
 
 [node name="player" type="TextureRect" parent="hud/hud/what/player"]
 layout_mode = 1
@@ -509,6 +533,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -88.0
 offset_bottom = -88.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = SubResource("AnimatedTexture_umbmn")
 
 [node name="enemy" type="TextureRect" parent="hud/hud/what/player"]
@@ -518,6 +544,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -88.0
 offset_bottom = -88.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = SubResource("AnimatedTexture_752xd")
 
 [node name="enemy" type="HBoxContainer" parent="hud/hud/what"]
@@ -534,7 +562,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -88.0
 offset_bottom = -88.0
-texture = SubResource("AnimatedTexture_sqiev")
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AnimatedTexture_vt27c")
 
 [node name="left" type="TextureRect" parent="hud/hud/what/enemy/direction"]
 layout_mode = 1
@@ -543,6 +573,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -88.0
 offset_bottom = -88.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = SubResource("AnimatedTexture_1sqg8")
 
 [node name="left2" type="TextureRect" parent="hud/hud/what/enemy/direction"]
@@ -552,6 +584,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -88.0
 offset_bottom = -88.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = SubResource("AnimatedTexture_7hm2m")
 
 [node name="direction2" type="Control" parent="hud/hud/what/enemy"]
@@ -565,6 +599,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -88.0
 offset_bottom = -88.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = SubResource("AnimatedTexture_sqiev")
 
 [node name="left" type="TextureRect" parent="hud/hud/what/enemy/direction2"]
@@ -574,6 +610,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -88.0
 offset_bottom = -88.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = SubResource("AnimatedTexture_x2co2")
 
 [node name="left2" type="TextureRect" parent="hud/hud/what/enemy/direction2"]
@@ -583,6 +621,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -88.0
 offset_bottom = -88.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = SubResource("AnimatedTexture_ljero")
 
 [node name="left3" type="TextureRect" parent="hud/hud/what/enemy/direction2"]
@@ -592,6 +632,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -88.0
 offset_bottom = -88.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = SubResource("AnimatedTexture_ikkmm")
 
 [connection signal="body_entered" from="Area2D" to="." method="BodyEntered"]
