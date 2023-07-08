@@ -18,8 +18,10 @@ var state: MovementStates = MovementStates.IDLE;
 
 var lastVelocity: Vector2 = Vector2.ZERO
 
-const speed: Vector2 = Vector2(400, 300);
-const jumpSpeed: float = -400;
+
+const mult: float = 1.1;
+const speed: Vector2 = Vector2(400 * mult, 300 * mult);
+const jumpSpeed: float = -400 * mult;
 
 
 # Variables for referencing
