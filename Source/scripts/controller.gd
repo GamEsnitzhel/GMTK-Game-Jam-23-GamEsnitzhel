@@ -6,17 +6,24 @@ class ActorInput extends RefCounted:
 
 
 class PlayerStats extends RefCounted:
+	enum Direction {
+		LEFT = -1,
+		NULL,
+		RIGHT = 1
+	}
+	enum WhoControls {
+		NULLPTR,
+		PLAYER,
+		ENEMY,
+	
+		MAX
+	}
 	var playerJump: bool = false;
 	var currentPlayerDir: float = 1;
 	var currentPlayerSpeed: float = 0.5;
+	var currentControl = WhoControls.PLAYER;
 
-enum _ControlEnum {
-	NULLPTR,
-	PLAYER,
-	ENEMY,
-	
-	MAX
-}
+
 
 
 var currentEnemy: Enemy = null;
@@ -24,22 +31,19 @@ var currentEnemy: Enemy = null;
 var stats: PlayerStats = PlayerStats.new()
 
 
-var _currentControl: _ControlEnum = _ControlEnum.PLAYER;
+func IsControlValid() -> bool: return stats.currentControl != stats.WhoControls.NULLPTR;
+func IsControlPlayer() -> bool: return stats.currentControl == stats.WhoControls.PLAYER;
+func IsControlEnemy() -> bool: return stats.currentControl == stats.WhoControls.ENEMY;
 
-func IsControlValid() -> bool: return _currentControl != _ControlEnum.NULLPTR;
-func IsControlPlayer() -> bool: return _currentControl == _ControlEnum.PLAYER;
-func IsControlEnemy() -> bool: return _currentControl == _ControlEnum.ENEMY;
-
-func SetControlInvalid() -> void: _currentControl = _ControlEnum.NULLPTR;
-func SetControlPlayer() -> void: _currentControl = _ControlEnum.PLAYER;
-func SetControlEnemy() -> void: _currentControl = _ControlEnum.ENEMY;
+func SetControlInvalid() -> void: stats.currentControl = stats.WhoControls.NULLPTR;
+func SetControlPlayer() -> void: stats.currentControl = stats.WhoControls.PLAYER;
+func SetControlEnemy() -> void: stats.currentControl = stats.WhoControls.ENEMY;
 
 
 func IsCurrentEnemy(test: Enemy) -> bool:
 	return IsControlEnemy() && currentEnemy == test;
 
 func SetEnemy(new: Enemy) -> void:
-	_currentControl = _ControlEnum.ENEMY;
 	currentEnemy = new;
 
 
@@ -86,10 +90,11 @@ func EnemyDied(enemy: Enemy) -> void:
 
 func PlayerSwitch(new = null) -> void:
 	if new != null:
-		_currentControl = new;
+		stats.currentControl = new;
 	else:
-		if _currentControl == _ControlEnum.PLAYER: _currentControl = _ControlEnum.ENEMY;
-		elif _currentControl == _ControlEnum.ENEMY: _currentControl = _ControlEnum.PLAYER;
+		if stats.currentControl == stats.WhoControls.PLAYER: stats.currentControl = stats.WhoControls.ENEMY;
+		elif stats.currentControl == stats.WhoControls.ENEMY: stats.currentControl = stats.WhoControls.PLAYER;
+	currentEnemy = null;
 
 func PlayerDir(new: float) -> void:
 	stats.currentPlayerDir = new;

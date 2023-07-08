@@ -58,7 +58,7 @@ sprite_frames = SubResource("SpriteFrames_ee622")
 visible = false
 position = Vector2(0, -64)
 sprite_frames = ExtResource("3_lvs8y")
-frame_progress = 0.149333
+frame_progress = 0.792029
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

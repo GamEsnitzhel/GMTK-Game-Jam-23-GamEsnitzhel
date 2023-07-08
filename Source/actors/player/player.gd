@@ -16,6 +16,7 @@ enum MovementStates {
 
 var state: MovementStates = MovementStates.IDLE;
 
+var lastVelocity: Vector2 = Vector2.ZERO
 
 const speed: Vector2 = Vector2(400, 300);
 const jumpSpeed: float = -400;
@@ -41,6 +42,8 @@ func _process(_delta) -> void:
 	if global_position.y >= 270: die();
 
 func _physics_process(delta) -> void:
+	# Get last vel
+	lastVelocity = velocity;
 	# Schmovement Vars
 	var input: Controller.ActorInput = Controller.GetInputPlayer();
 	if state == MovementStates.DEAD:
@@ -107,7 +110,7 @@ func UpdateAnimation() -> void:
 
 func BodyEntered(body):
 	if body is Enemy:
-		if velocity.y > 1:
+		if lastVelocity.y > 1:
 			body.die();
 			sprite.play("jump")
 			velocity.y = jumpSpeed;

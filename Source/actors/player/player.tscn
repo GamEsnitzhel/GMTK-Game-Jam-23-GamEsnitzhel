@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://dlclvcfn1ww0r"]
+[gd_scene load_steps=92 format=3 uid="uid://dlclvcfn1ww0r"]
 
 [ext_resource type="Script" path="res://actors/player/player.gd" id="1_f8vjr"]
 [ext_resource type="Texture2D" uid="uid://08gvu2egq2oh" path="res://sprites/player/player_air.png" id="2_tpf6i"]
@@ -7,6 +7,39 @@
 [ext_resource type="Texture2D" uid="uid://brd6wycqhe5ub" path="res://sprites/player/player_idle.png" id="4_cyc1m"]
 [ext_resource type="Texture2D" uid="uid://cvcamon8rptf3" path="res://sprites/player/player_walk.png" id="5_kqe2v"]
 [ext_resource type="SpriteFrames" uid="uid://cojqmqc13ilri" path="res://actors/active_frames.tres" id="7_eatsv"]
+[ext_resource type="Script" path="res://actors/player/hud.gd" id="8_u8qm4"]
+[ext_resource type="Texture2D" uid="uid://cy6vgv36mbmav" path="res://sprites/hud/frame (1).png" id="9_c00hl"]
+[ext_resource type="Texture2D" uid="uid://nr6h2qqho2yc" path="res://sprites/hud/frame (2).png" id="10_51i4a"]
+[ext_resource type="Texture2D" uid="uid://bcfh07aagffw1" path="res://sprites/hud/frame (3).png" id="11_ywjbx"]
+[ext_resource type="Texture2D" uid="uid://bos7dxgpewhyj" path="res://sprites/hud/frame (4).png" id="12_37rkh"]
+[ext_resource type="Texture2D" uid="uid://dcki2dblre6hy" path="res://sprites/hud/frame (5).png" id="13_3mibm"]
+[ext_resource type="Texture2D" uid="uid://briqkn6kq6k8d" path="res://sprites/hud/frame (6).png" id="14_2jnie"]
+[ext_resource type="Texture2D" uid="uid://b7b1g82rv368i" path="res://sprites/hud/frame (7).png" id="15_23754"]
+[ext_resource type="Texture2D" uid="uid://b3hw0xk0np5ie" path="res://sprites/hud/frame (8).png" id="16_3gw0r"]
+[ext_resource type="Texture2D" uid="uid://cmw12kyl1asx5" path="res://sprites/hud/frame (9).png" id="17_fdml5"]
+[ext_resource type="Texture2D" uid="uid://bql3yxxjfexj" path="res://sprites/hud/frame (10).png" id="18_mk8b2"]
+[ext_resource type="Texture2D" uid="uid://m1mxqyvhnot8" path="res://sprites/hud/frame (11).png" id="19_08c4g"]
+[ext_resource type="Texture2D" uid="uid://cqdb6e74yxpwm" path="res://sprites/hud/frame (12).png" id="20_8cc25"]
+[ext_resource type="Texture2D" uid="uid://fe7nn71h2fon" path="res://sprites/hud/frame (17).png" id="21_ixs50"]
+[ext_resource type="Texture2D" uid="uid://b8ebj886sa8yo" path="res://sprites/hud/frame (18).png" id="22_t53nc"]
+[ext_resource type="Texture2D" uid="uid://dobyrnbngbicj" path="res://sprites/hud/frame (19).png" id="23_j8rn8"]
+[ext_resource type="Texture2D" uid="uid://844najcmj5mb" path="res://sprites/hud/frame (20).png" id="24_yq65h"]
+[ext_resource type="Texture2D" uid="uid://cmyspjxlsy000" path="res://sprites/hud/frame (13).png" id="25_lqdw8"]
+[ext_resource type="Texture2D" uid="uid://v3iwsjuy6dmw" path="res://sprites/hud/frame (14).png" id="26_348qc"]
+[ext_resource type="Texture2D" uid="uid://cqk3xdgmsjhh8" path="res://sprites/hud/frame (15).png" id="27_31hyu"]
+[ext_resource type="Texture2D" uid="uid://c5qqh4pua8fj0" path="res://sprites/hud/frame (16).png" id="28_8mfxq"]
+[ext_resource type="Texture2D" uid="uid://ccoh675gkejhe" path="res://sprites/hud/frame (29).png" id="29_fbolb"]
+[ext_resource type="Texture2D" uid="uid://beml3pi4y2mb0" path="res://sprites/hud/frame (21).png" id="29_ml7pf"]
+[ext_resource type="Texture2D" uid="uid://bbfa8aeia8bme" path="res://sprites/hud/frame (22).png" id="30_dvq7o"]
+[ext_resource type="Texture2D" uid="uid://xbn35udiq0o6" path="res://sprites/hud/frame (30).png" id="30_e5rn0"]
+[ext_resource type="Texture2D" uid="uid://d3gatmosskcvm" path="res://sprites/hud/frame (31).png" id="31_bie2u"]
+[ext_resource type="Texture2D" uid="uid://d1f4k4mc1w5xc" path="res://sprites/hud/frame (23).png" id="31_tpf24"]
+[ext_resource type="Texture2D" uid="uid://8w84ksgy8eqw" path="res://sprites/hud/frame (24).png" id="32_h8sq3"]
+[ext_resource type="Texture2D" uid="uid://ox3xb1610prc" path="res://sprites/hud/frame (32).png" id="32_r0uwx"]
+[ext_resource type="Texture2D" uid="uid://bd17eeoc81gi2" path="res://sprites/hud/frame (25).png" id="33_g20pi"]
+[ext_resource type="Texture2D" uid="uid://ey3rv2djmbyb" path="res://sprites/hud/frame (26).png" id="34_8rxvu"]
+[ext_resource type="Texture2D" uid="uid://b2wg34xsmp3su" path="res://sprites/hud/frame (27).png" id="35_ahdm3"]
+[ext_resource type="Texture2D" uid="uid://c061qckwces7a" path="res://sprites/hud/frame (28).png" id="36_85p5q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xlrpy"]
 atlas = ExtResource("2_tpf6i")
@@ -322,6 +355,94 @@ size = Vector2(63, 121)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7raqg"]
 size = Vector2(67, 125)
 
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_sqiev"]
+frames = 4
+speed_scale = 5.0
+frame_0/texture = ExtResource("9_c00hl")
+frame_1/texture = ExtResource("10_51i4a")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("11_ywjbx")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("12_37rkh")
+frame_3/duration = 1.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_umbmn"]
+frames = 4
+speed_scale = 5.0
+frame_0/texture = ExtResource("13_3mibm")
+frame_1/texture = ExtResource("14_2jnie")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("15_23754")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("16_3gw0r")
+frame_3/duration = 1.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_752xd"]
+frames = 4
+speed_scale = 5.0
+frame_0/texture = ExtResource("17_fdml5")
+frame_1/texture = ExtResource("18_mk8b2")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("19_08c4g")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("20_8cc25")
+frame_3/duration = 1.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_1sqg8"]
+frames = 4
+speed_scale = 5.0
+frame_0/texture = ExtResource("21_ixs50")
+frame_1/texture = ExtResource("22_t53nc")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("23_j8rn8")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("24_yq65h")
+frame_3/duration = 1.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_7hm2m"]
+frames = 4
+speed_scale = 5.0
+frame_0/texture = ExtResource("25_lqdw8")
+frame_1/texture = ExtResource("26_348qc")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("27_31hyu")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("28_8mfxq")
+frame_3/duration = 1.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_x2co2"]
+frames = 4
+speed_scale = 5.0
+frame_0/texture = ExtResource("29_ml7pf")
+frame_1/texture = ExtResource("30_dvq7o")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("31_tpf24")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("32_h8sq3")
+frame_3/duration = 1.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_ljero"]
+frames = 4
+speed_scale = 5.0
+frame_0/texture = ExtResource("33_g20pi")
+frame_1/texture = ExtResource("34_8rxvu")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("35_ahdm3")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("36_85p5q")
+frame_3/duration = 1.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_ikkmm"]
+frames = 4
+speed_scale = 5.0
+frame_0/texture = ExtResource("29_fbolb")
+frame_1/texture = ExtResource("30_e5rn0")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("31_bie2u")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("32_r0uwx")
+frame_3/duration = 1.0
+
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_f8vjr")
 
@@ -339,11 +460,138 @@ position = Vector2(-0.5, 1.5)
 shape = SubResource("RectangleShape2D_pp5l6")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.75, 0.75)
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-0.5, 1.5)
 shape = SubResource("RectangleShape2D_7raqg")
+
+[node name="hud" type="CanvasLayer" parent="."]
+
+[node name="hud" type="Control" parent="hud"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_u8qm4")
+
+[node name="what" type="HBoxContainer" parent="hud/hud"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.0888889
+anchor_right = 0.35
+anchor_bottom = 0.266667
+offset_bottom = -1.52588e-05
+metadata/_edit_use_anchors_ = true
+
+[node name="player" type="Control" parent="hud/hud/what"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="background" type="TextureRect" parent="hud/hud/what/player"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -88.0
+offset_bottom = -88.0
+texture = SubResource("AnimatedTexture_sqiev")
+
+[node name="player" type="TextureRect" parent="hud/hud/what/player"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -88.0
+offset_bottom = -88.0
+texture = SubResource("AnimatedTexture_umbmn")
+
+[node name="enemy" type="TextureRect" parent="hud/hud/what/player"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -88.0
+offset_bottom = -88.0
+texture = SubResource("AnimatedTexture_752xd")
+
+[node name="enemy" type="HBoxContainer" parent="hud/hud/what"]
+layout_mode = 2
+
+[node name="direction" type="Control" parent="hud/hud/what/enemy"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="background" type="TextureRect" parent="hud/hud/what/enemy/direction"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -88.0
+offset_bottom = -88.0
+texture = SubResource("AnimatedTexture_sqiev")
+
+[node name="left" type="TextureRect" parent="hud/hud/what/enemy/direction"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -88.0
+offset_bottom = -88.0
+texture = SubResource("AnimatedTexture_1sqg8")
+
+[node name="left2" type="TextureRect" parent="hud/hud/what/enemy/direction"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -88.0
+offset_bottom = -88.0
+texture = SubResource("AnimatedTexture_7hm2m")
+
+[node name="direction2" type="Control" parent="hud/hud/what/enemy"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="background" type="TextureRect" parent="hud/hud/what/enemy/direction2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -88.0
+offset_bottom = -88.0
+texture = SubResource("AnimatedTexture_sqiev")
+
+[node name="left" type="TextureRect" parent="hud/hud/what/enemy/direction2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -88.0
+offset_bottom = -88.0
+texture = SubResource("AnimatedTexture_x2co2")
+
+[node name="left2" type="TextureRect" parent="hud/hud/what/enemy/direction2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -88.0
+offset_bottom = -88.0
+texture = SubResource("AnimatedTexture_ljero")
+
+[node name="left3" type="TextureRect" parent="hud/hud/what/enemy/direction2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -88.0
+offset_bottom = -88.0
+texture = SubResource("AnimatedTexture_ikkmm")
 
 [connection signal="body_entered" from="Area2D" to="." method="BodyEntered"]
