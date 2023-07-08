@@ -1240,14 +1240,14 @@ function = "reverse"
 
 [node name="playerchecker2" parent="." instance=ExtResource("4_ub5xx")]
 position = Vector2(-153, 96)
-function = "dir"
-args = [-1.0]
+function = "reverse"
 
 [node name="playerchecker3" parent="." instance=ExtResource("4_ub5xx")]
 position = Vector2(-66, 97)
-function = "jump"
+function = "speed"
+args = [0.5]
 
 [node name="playerchecker4" parent="." instance=ExtResource("4_ub5xx")]
 position = Vector2(220, 96)
 function = "speed"
-args = [0.5]
+args = [0.1]

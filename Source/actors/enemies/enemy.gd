@@ -13,6 +13,9 @@ const jumpSpeed: float = -250;
 func _ready():
 	sprite.play("default")
 
+func _exit_tree() -> void:
+	Controller.EnemyDied(self);
+
 func _input(event: InputEvent):
 	if !hasMouse: return;
 	if !event is InputEventMouseButton: return;
@@ -35,4 +38,6 @@ func _physics_process(delta) -> void:
 func _on_mouse_entered(): hasMouse = true;
 func _on_mouse_exited(): hasMouse = false;
 
+func die():
+	queue_free()
 
