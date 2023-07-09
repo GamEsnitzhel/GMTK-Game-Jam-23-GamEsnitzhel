@@ -51,6 +51,10 @@ func _process(_delta) -> void:
 	UpdateWalkAudio();
 	if global_position.y >= 270: die();
 
+func _input(_event):
+	if Input.is_action_just_pressed("reset"): die();
+
+
 func _physics_process(delta) -> void:
 	# Get last vel
 	lastVelocity = velocity;

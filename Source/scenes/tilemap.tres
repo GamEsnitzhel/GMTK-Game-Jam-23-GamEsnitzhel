@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=22 format=3 uid="uid://syo34cyei64m"]
+[gd_resource type="TileSet" load_steps=23 format=3 uid="uid://syo34cyei64m"]
 
 [ext_resource type="Texture2D" uid="uid://bqng3kiu6lb1o" path="res://sprites/backgroubnd/tileset.png" id="1_tg3s0"]
 [ext_resource type="PackedScene" uid="uid://x6r7yeuixiwo" path="res://actors/helper/helpers/pc_jump.tscn" id="2_8e085"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cwddi7aafnsi5" path="res://actors/helper/helpers/pc_speed3.tscn" id="14_2rawd"]
 [ext_resource type="PackedScene" uid="uid://bxwxwwlmi8b3d" path="res://actors/helper/coins/coin.tscn" id="15_mcuhc"]
 [ext_resource type="PackedScene" uid="uid://c10ait7cemteh" path="res://actors/helper/coins/coinswap.tscn" id="16_spfyb"]
+[ext_resource type="PackedScene" uid="uid://c2yjt1w5yj6h1" path="res://actors/helper/coins/purpcoin/purplecoin.tscn" id="17_85xoe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_37fvt"]
 texture = ExtResource("1_tg3s0")
@@ -416,6 +417,7 @@ scenes/3/scene = ExtResource("14_2rawd")
 resource_name = "Coins"
 scenes/1/scene = ExtResource("15_mcuhc")
 scenes/2/scene = ExtResource("16_spfyb")
+scenes/3/scene = ExtResource("17_85xoe")
 
 [resource]
 tile_size = Vector2i(64, 64)
