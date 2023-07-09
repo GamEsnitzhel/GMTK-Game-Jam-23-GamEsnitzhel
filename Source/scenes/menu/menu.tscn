@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://468ppp4rla3s"]
+[gd_scene load_steps=20 format=3 uid="uid://468ppp4rla3s"]
 
 [ext_resource type="Script" path="res://scenes/menu/menu.gd" id="1_m7buj"]
 [ext_resource type="Texture2D" uid="uid://b5mj3m32vfycs" path="res://sprites/backgroubnd/actually_backgroubnt.png" id="2_xt0s5"]
@@ -8,6 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://bbig7ohbm47y2" path="res://sprites/menu/settings/I ate a torkey.gif.png.exe.edu.gov.png" id="6_tv0gg"]
 [ext_resource type="Texture2D" uid="uid://ej6p10fit0ao" path="res://sprites/menu/settings/.pessed.png" id="7_577ox"]
 [ext_resource type="Texture2D" uid="uid://dk84qe7hgwrnt" path="res://sprites/menu/settings/hooovy.png" id="8_e1x3o"]
+[ext_resource type="Texture2D" uid="uid://k65ndk3a1m2h" path="res://sprites/menu/togglemusic/fsfssffsark.png" id="9_1w8dy"]
+[ext_resource type="Texture2D" uid="uid://d3hwggdcqkvu4" path="res://sprites/menu/togglemusic/daaark.png" id="10_orixx"]
+[ext_resource type="Texture2D" uid="uid://k12ubj03t7jh" path="res://sprites/menu/togglemusic/tog.png" id="11_eo4dw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rg6q1"]
 font_size = 76
@@ -70,6 +73,24 @@ frame_1/duration = 1.0
 frame_2/texture = ExtResource("8_e1x3o")
 frame_2/duration = 1.0
 
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_mm4xo"]
+frames = 3
+speed_scale = 0.0
+frame_0/texture = ExtResource("9_1w8dy")
+frame_1/texture = ExtResource("10_orixx")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("11_eo4dw")
+frame_2/duration = 1.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_p1hq2"]
+frames = 3
+speed_scale = 0.0
+frame_0/texture = ExtResource("3_gpms6")
+frame_1/texture = ExtResource("5_ty8cg")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("4_5xwd3")
+frame_2/duration = 1.0
+
 [node name="menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -123,4 +144,30 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AnimatedTexture_pcbqg")
+metadata/_edit_use_anchors_ = true
+
+[node name="togglemusic" type="TextureRect" parent="."]
+layout_mode = 2
+anchor_right = -0.6
+offset_left = 384.0
+offset_top = 166.0
+offset_right = 1664.0
+offset_bottom = 422.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AnimatedTexture_mm4xo")
+stretch_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="back" type="TextureRect" parent="."]
+layout_mode = 2
+anchor_top = 0.0888889
+anchor_right = -0.6
+anchor_bottom = 0.0888889
+offset_left = 384.0
+offset_top = 362.0
+offset_right = 1664.0
+offset_bottom = 618.0
+texture = SubResource("AnimatedTexture_p1hq2")
+stretch_mode = 3
 metadata/_edit_use_anchors_ = true

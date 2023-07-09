@@ -3,6 +3,7 @@ extends Control
 
 func _ready() -> void:
 	$AnimationPlayer.play("new_animation")
+	closeSettings();
 
 
 
@@ -12,17 +13,24 @@ func startgame():
 	Trans.ResetTime();
 	Trans.ResumeTime();
 
-func settings() -> void:
-	pass
-
-func _on_play_mouse_entered():
-	print("WOO")
-
 
 class button extends RefCounted:
 	var tex: TextureRect;
 	var function: Callable;
-	var _hovered: bool = false
+	var disabled: bool = false;
+	
+	var _hovered: bool = false;
+	
+	func Hide() -> void: tex.hide();
+	func Show() -> void: tex.show();
+	
+	func DisHide() -> void:
+		Hide();
+		disabled = true;
+	
+	func EnaShow() -> void:
+		Show();
+		disabled = false;
 	
 	static func create(texture: TextureRect, fc: Callable) -> button:
 		var toReturn: button = button.new()
@@ -35,8 +43,12 @@ class button extends RefCounted:
 			function.call();
 			tex.texture.current_frame = 1;
 	
-	func Update(mPos: Vector2) -> void:
-		if _check(mPos, tex):
+	func Update() -> void:
+		if disabled:
+			_hovered = false;
+			tex.texture.current_frame = 0;
+			return;
+		if _check(tex.get_global_mouse_position(), tex):
 			if !_hovered:
 				_hovered = true;
 				tex.texture.current_frame = 2;
@@ -46,10 +58,10 @@ class button extends RefCounted:
 				tex.texture.current_frame = 0;
 	
 	func _check(pos: Vector2, button: TextureRect) -> bool:
-		if pos.x < button.position.x: return false;
-		if pos.x > button.position.x + button.size.x: return false;
-		if pos.y < button.position.y: return false;
-		if pos.y > button.position.y + button.size.y: return false;
+		if pos.x < button.global_position.x: return false;
+		if pos.x > button.global_position.x + button.size.x: return false;
+		if pos.y < button.global_position.y: return false;
+		if pos.y > button.global_position.y + button.size.y: return false;
 		return true;
 
 func _input(event):
@@ -59,11 +71,28 @@ func _input(event):
 		settingsButtn.MousePressed();
 
 
+# Base menu buttons
 @onready var playButton: button = button.create($TextureRect, startgame)
 @onready var settingsButtn: button = button.create($TextureRect2, settings)
 
+@onready var setting_toggleMusic: button = button.create($togglemusic, toggleMusic)
+@onready var setting_closeSettings: button = button.create($back, closeSettings)
+
+
+@onready var menuButtons: Array[button] = [playButton, settingsButtn]
+@onready var settingsButtons: Array[button] = [setting_toggleMusic, setting_closeSettings]
 
 func _process(_delta):
-	var mousePos = get_global_mouse_position();
-	playButton.Update(mousePos)
-	settingsButtn.Update(mousePos)
+	playButton.Update()
+	settingsButtn.Update()
+
+func settings() -> void:
+	for b in menuButtons: b.DisHide();
+	for b in settingsButtons: b.EnaShow();
+
+func closeSettings() -> void:
+	for b in menuButtons: b.EnaShow();
+	for b in settingsButtons: b.DisHide();
+
+func toggleMusic() -> void:
+	pass

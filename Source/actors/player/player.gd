@@ -40,7 +40,8 @@ const animationFromStates: Array[String] = [
 	"jump",
 	"air",
 	"jump",
-	"die"
+	"die",
+	"na"
 ];
 
 

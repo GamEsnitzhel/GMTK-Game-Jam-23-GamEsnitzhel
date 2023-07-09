@@ -330,6 +330,11 @@ animations = [{
 "name": &"jump",
 "speed": 10.0
 }, {
+"frames": [],
+"loop": true,
+"name": &"na",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_m3amc")
@@ -520,7 +525,7 @@ script = ExtResource("1_f8vjr")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_nyqk0")
-animation = &"walk"
+animation = &"na"
 
 [node name="active" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -82.2)
