@@ -20,11 +20,12 @@ func ResetStats() -> void:
 
 func CollectPurpleCoin() -> void:
 	_coins_in_limbo += 1;
-	purple_coins_collected += 1;
 
 func PlayerDied() -> void:
 	deaths += 1;
+	purple_coins_collected += _coins_in_limbo;
 	_coins_in_limbo = 0;
+	print(GetStatsString())
 
 func LevelComplete() -> void:
 	purple_coins_saved += _coins_in_limbo;
@@ -45,7 +46,7 @@ func GetStatsString() -> String:
 	
 	toReturn += "\nPlayer Deaths: " + str(deaths);
 	toReturn += "\nEnemies Killed: " + str(enemies_killed);
-	toReturn += "\nPurple Coins Collected: " + str(purple_coins_collected);
+	toReturn += "\nPurple Coins Lost: " + str(purple_coins_collected);
 	toReturn += "\nPurple Coins Captured: " + str(purple_coins_saved);
 
 	return toReturn

@@ -24,6 +24,7 @@ const speed: Vector2 = Vector2(400 * mult, 300 * mult);
 const jumpSpeed: float = -400 * mult;
 
 var hasLetGo: bool = true
+var canDie: bool = true
 
 # Variables for referencing
 @onready var sprite: AnimatedSprite2D = $sprite;
@@ -60,7 +61,7 @@ func _physics_process(delta) -> void:
 	lastVelocity = velocity;
 	# Schmovement Vars
 	var input: Controller.ActorInput = Controller.GetInputPlayer();
-	if state == MovementStates.DEAD:
+	if  state == MovementStates.DEAD or state == MovementStates.MAX:
 		input.xInput = 0;
 		input.isJumping = false;
 	var targetVel: Vector2 = Vector2(input.xInput, velocity.y + speed.y);
@@ -111,8 +112,10 @@ func UpdateMoveState() -> void:
 				var sf: SpriteFrames = sprite.sprite_frames;
 				var fc: int = sf.get_frame_count("die") - 1;
 				if sprite.frame == fc:
-					Trans.ReloadScene()
 					state = MovementStates.MAX
+					if canDie:
+						Trans.ReloadScene()
+						Stats.PlayerDied();
 		_:
 			pass;
 
@@ -153,7 +156,6 @@ func die():
 		sprite.play("die");
 		state = MovementStates.DEAD;
 		velocity.y = 0;
-		Stats.PlayerDied();
 
 func UpdateWalkAudio() -> void:
 	if sprite.animation != "walk": return;

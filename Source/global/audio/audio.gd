@@ -7,6 +7,7 @@ var toggleAudio = 0;
 
 @onready var sound_win: AudioStreamPlayer = $winnshiz/AudioStreamPlayer
 @onready var sound_coin: AudioStreamPlayer = $winnshiz/AudioStreamPlayer2
+@onready var sound_switch: AudioStreamPlayer = $winnshiz/AudioStreamPlayer3
 
 func _ready():
 	theme_intro.play()
@@ -31,3 +32,6 @@ func ToggleMusic() -> void:
 
 func PurpleCoin() -> void:
 	sound_coin.play();
+
+func Switch() -> void:
+	sound_switch.play();

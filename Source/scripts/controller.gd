@@ -95,12 +95,14 @@ func EnemyDied(enemy: Enemy) -> void:
 
 
 func PlayerSwitch(new = null) -> void:
+	var old = stats.currentControl;
 	if new != null:
 		stats.currentControl = new;
 	else:
 		if stats.currentControl == stats.WhoControls.PLAYER: stats.currentControl = stats.WhoControls.ENEMY;
 		elif stats.currentControl == stats.WhoControls.ENEMY: stats.currentControl = stats.WhoControls.PLAYER;
 	currentEnemy = null;
+	if stats.currentControl != old: Audio.Switch();
 
 func PlayerDir(new: float) -> void:
 	stats.currentPlayerDir = new;

@@ -11,6 +11,8 @@ func _ready() -> void:
 func _on_body_entered(body):
 	if over: return
 	if body is Player:
+		if body.state == body.MovementStates.DEAD or body.state == body.MovementStates.MAX: return;
+		body.canDie = false;
 		over = true
 		await Audio.PlayerWin()
 		Trans.ChangeSceneToFile(path)

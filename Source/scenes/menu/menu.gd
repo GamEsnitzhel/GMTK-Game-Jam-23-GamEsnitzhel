@@ -12,6 +12,7 @@ func startgame():
 	Trans.ChangeSceneToFile("res://scenes/tutorial/tutorial.tscn");
 	Trans.ResetTime();
 	Trans.ResumeTime();
+	Stats.ResetStats();
 
 
 class button extends RefCounted:
