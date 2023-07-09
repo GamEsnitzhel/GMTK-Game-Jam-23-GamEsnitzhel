@@ -67,8 +67,8 @@ class button extends RefCounted:
 func _input(event):
 	if !event is InputEventMouseButton: return;
 	if event.button_index == MOUSE_BUTTON_LEFT && event.pressed:
-		playButton.MousePressed();
-		settingsButtn.MousePressed();
+		for b in menuButtons: b.MousePressed();
+		for b in settingsButtons: b.MousePressed();
 
 
 # Base menu buttons
@@ -83,8 +83,8 @@ func _input(event):
 @onready var settingsButtons: Array[button] = [setting_toggleMusic, setting_closeSettings]
 
 func _process(_delta):
-	playButton.Update()
-	settingsButtn.Update()
+	for b in menuButtons: b.Update();
+	for b in settingsButtons: b.Update();
 
 func settings() -> void:
 	for b in menuButtons: b.DisHide();
@@ -95,4 +95,4 @@ func closeSettings() -> void:
 	for b in settingsButtons: b.DisHide();
 
 func toggleMusic() -> void:
-	pass
+	Audio.ToggleMusic()

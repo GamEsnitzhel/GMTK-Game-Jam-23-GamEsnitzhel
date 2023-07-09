@@ -3,6 +3,8 @@ extends Node2D
 @onready var theme_intro = $tb2
 @onready var theme_body = $tb
 
+var toggleAudio = 0;
+
 @onready var sound_win = $winnshiz/AudioStreamPlayer
 
 func _ready():
@@ -18,4 +20,10 @@ func PlayerWin() -> void:
 	await sound_win.finished
 	theme_intro.stream_paused = false
 	theme_body.stream_paused = false
-	
+
+func ToggleMusic() -> void:
+	var db = [0, -80];
+	toggleAudio += 1;
+	toggleAudio %= 2;
+	theme_intro.volume_db = db[toggleAudio]
+	theme_body.volume_db = db[toggleAudio]
