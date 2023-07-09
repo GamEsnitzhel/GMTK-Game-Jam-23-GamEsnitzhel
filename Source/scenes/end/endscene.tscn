@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=3 uid="uid://5ddkf735l85b"]
+
+[ext_resource type="Script" path="res://scenes/end/endscene.gd" id="1_e8a3k"]
+[ext_resource type="Texture2D" uid="uid://b5mj3m32vfycs" path="res://sprites/backgroubnd/actually_backgroubnt.png" id="2_s1njk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_sg4fc"]
+font_size = 144
+outline_size = 32
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1dd2w"]
+font_size = 32
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 0.501961)
+shadow_offset = Vector2(10, 7)
+
+[node name="endscene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e8a3k")
+
+[node name="ActuallyBackgroubnt" type="Sprite2D" parent="."]
+position = Vector2(2058, 386)
+texture = ExtResource("2_s1njk")
+
+[node name="ActuallyBackgroubnt2" type="Sprite2D" parent="ActuallyBackgroubnt"]
+position = Vector2(-1919, 0)
+texture = ExtResource("2_s1njk")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -466.0
+offset_right = 466.0
+offset_bottom = 218.0
+grow_horizontal = 2
+text = "You Win Yay!"
+label_settings = SubResource("LabelSettings_sg4fc")
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 211.0
+offset_bottom = -153.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Sats test
+Stats Line 2
+Stats Line 3
+Stats Line 4
+Stats Line 5
+Stats Line 6
+Stats Line 7"
+label_settings = SubResource("LabelSettings_1dd2w")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Label2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

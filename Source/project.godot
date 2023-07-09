@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Trans="*res://global/transitions/transitions.tscn"
 Controller="*res://scripts/controller.gd"
 Audio="*res://global/audio/audio.tscn"
+Stats="*res://scripts/stats.gd"
 
 [display]
 

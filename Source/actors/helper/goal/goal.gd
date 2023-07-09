@@ -14,3 +14,4 @@ func _on_body_entered(body):
 		over = true
 		await Audio.PlayerWin()
 		Trans.ChangeSceneToFile(path)
+		Stats.LevelComplete()

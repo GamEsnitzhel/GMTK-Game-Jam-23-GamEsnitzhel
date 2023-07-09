@@ -142,6 +142,7 @@ func BodyEntered(body):
 			sprite.play("jump")
 			velocity.y = jumpSpeed;
 			audio_hit.play()
+			Stats.EnemyKilled();
 		else: die()
 	elif body is Spike:
 		die();
@@ -152,6 +153,7 @@ func die():
 		sprite.play("die");
 		state = MovementStates.DEAD;
 		velocity.y = 0;
+		Stats.PlayerDied();
 
 func UpdateWalkAudio() -> void:
 	if sprite.animation != "walk": return;

@@ -119,16 +119,18 @@ label_settings = SubResource("LabelSettings_c4tmj")
 horizontal_alignment = 1
 autowrap_mode = 2
 
+[node name="Label4" type="Label" parent="text"]
+layout_mode = 0
+offset_left = -303.0
+offset_top = -85.0
+offset_right = 456.0
+offset_bottom = 49.0
+text = "WASD / ARROW KEYS to move. Press R to reset (yes, a platformer needs a reset button)"
+label_settings = SubResource("LabelSettings_c4tmj")
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [node name="goal" parent="." instance=ExtResource("5_7syre")]
 position = Vector2(4129, -188)
 scale = Vector2(8.8256, 4.54271)
 path = "res://scenes/levels/level0.tscn"
-
-[connection signal="mouse_entered" from="TileMap/enemy" to="TileMap/enemy" method="_on_mouse_entered" flags=18]
-[connection signal="mouse_exited" from="TileMap/enemy" to="TileMap/enemy" method="_on_mouse_exited" flags=18]
-[connection signal="mouse_entered" from="TileMap/@CharacterBody2D@72629" to="TileMap/@CharacterBody2D@72629" method="_on_mouse_entered" flags=18]
-[connection signal="mouse_exited" from="TileMap/@CharacterBody2D@72629" to="TileMap/@CharacterBody2D@72629" method="_on_mouse_exited" flags=18]
-[connection signal="mouse_entered" from="TileMap/@CharacterBody2D@72636" to="TileMap/@CharacterBody2D@72636" method="_on_mouse_entered" flags=18]
-[connection signal="mouse_exited" from="TileMap/@CharacterBody2D@72636" to="TileMap/@CharacterBody2D@72636" method="_on_mouse_exited" flags=18]
-[connection signal="body_entered" from="TileMap/coin" to="TileMap/coin" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/purplecoin" to="TileMap/purplecoin" method="_on_body_entered" flags=18]
