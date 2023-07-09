@@ -14,6 +14,6 @@ func _on_body_entered(body):
 		if body.state == body.MovementStates.DEAD or body.state == body.MovementStates.MAX: return;
 		body.canDie = false;
 		over = true
+		Stats.LevelComplete()
 		await Audio.PlayerWin()
 		Trans.ChangeSceneToFile(path)
-		Stats.LevelComplete()

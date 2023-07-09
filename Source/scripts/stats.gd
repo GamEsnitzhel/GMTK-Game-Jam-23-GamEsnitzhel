@@ -35,6 +35,8 @@ func LevelComplete() -> void:
 func EnemyKilled() -> void:
 	enemies_killed += 1;
 
+func SceneStarted() -> void:
+	_coins_in_limbo = 0;
 
 func GetStatsString() -> String:
 	var toReturn: String = ""

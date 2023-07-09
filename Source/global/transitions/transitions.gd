@@ -20,6 +20,7 @@ func _change(next: Array, funcPtr: StringName):
 	await anim.animation_finished;
 	get_tree().callv(funcPtr, next);
 	await get_tree().process_frame;
+	Stats.SceneStarted();
 	anim.play_backwards("trans");
 	await anim.animation_finished;
 	isTransitioning = false;
