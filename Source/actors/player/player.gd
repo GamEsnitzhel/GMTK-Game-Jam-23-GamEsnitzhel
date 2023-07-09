@@ -67,7 +67,7 @@ func _physics_process(delta) -> void:
 	velocity = lerp(velocity, targetVel, delta);
 	# Do jumping
 	if (input.isJumping && is_on_floor()):
-		velocity.y = jumpSpeed * clamp((abs(velocity.x) * 1.5 + 50) / speed.x, 0.5, 1);
+		velocity.y = jumpSpeed * clamp((abs(velocity.x) * 1.5 + 50) / speed.x, 0.75, 1);
 		audio_jump.play();
 		hasLetGo = false;
 	if Input.is_action_just_released("ui_up") && Controller.IsControlPlayer() && velocity.y < 0 && not hasLetGo:
@@ -143,7 +143,7 @@ func BodyEntered(body):
 		die();
 
 func die():
-	if state != MovementStates.DEAD:
+	if state != MovementStates.DEAD and state != MovementStates.MAX:
 		audio_die.play()
 		sprite.play("die");
 		state = MovementStates.DEAD;

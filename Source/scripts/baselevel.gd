@@ -12,4 +12,5 @@ var playerStats: Controller.PlayerStats = Controller.PlayerStats.new()
 func _ready() -> void:
 	playerStats.currentPlayerDir = playerDirection;
 	playerStats.currentPlayerSpeed = playerSpeed;
+	playerStats.currentControl = whoControls;
 	Controller.stats = playerStats;
