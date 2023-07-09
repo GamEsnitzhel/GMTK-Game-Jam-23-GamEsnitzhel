@@ -1,6 +1,101 @@
-[gd_scene load_steps=2 format=3 uid="uid://468ppp4rla3s"]
+[gd_scene load_steps=10 format=3 uid="uid://468ppp4rla3s"]
 
 [ext_resource type="Script" path="res://scenes/menu/menu.gd" id="1_m7buj"]
+[ext_resource type="Texture2D" uid="uid://b5mj3m32vfycs" path="res://sprites/backgroubnd/actually_backgroubnt.png" id="2_xt0s5"]
+[ext_resource type="Texture2D" uid="uid://dwbukm21iu2an" path="res://sprites/menu/playbutton/play.ng.png" id="3_gpms6"]
+[ext_resource type="Texture2D" uid="uid://cwpv3oynmdnea" path="res://sprites/menu/playbutton/ork.png" id="4_5xwd3"]
+[ext_resource type="Texture2D" uid="uid://c8gk4nmyx5brv" path="res://sprites/menu/playbutton/play.ng22.png" id="5_ty8cg"]
 
-[node name="menu" type="Node2D"]
+[sub_resource type="LabelSettings" id="LabelSettings_rg6q1"]
+font_size = 76
+outline_size = 30
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_527y4"]
+resource_name = "new_animation"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ActuallyBackgroubnt:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5, 10),
+"transitions": PackedFloat32Array(-2, -2, -5),
+"update": 0,
+"values": [Vector2(726, 401), Vector2(751, 389), Vector2(726, 401)]
+}
+
+[sub_resource type="Animation" id="Animation_qya6f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ActuallyBackgroubnt:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(726, 401)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0jqrg"]
+_data = {
+"RESET": SubResource("Animation_qya6f"),
+"new_animation": SubResource("Animation_527y4")
+}
+
+[node name="menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_m7buj")
+
+[node name="ActuallyBackgroubnt" type="Sprite2D" parent="."]
+position = Vector2(726, 401)
+texture = ExtResource("2_xt0s5")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -1065.0
+offset_right = 1066.0
+offset_bottom = 155.0
+grow_horizontal = 2
+text = "CTRL+SHIFT"
+label_settings = SubResource("LabelSettings_rg6q1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0jqrg")
+}
+
+[node name="play" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0179687
+anchor_top = 0.613889
+anchor_right = 0.417969
+anchor_bottom = 0.969444
+offset_right = 20.4
+offset_bottom = 34.4889
+texture_normal = ExtResource("3_gpms6")
+texture_pressed = ExtResource("4_5xwd3")
+texture_hover = ExtResource("5_ty8cg")
+texture_disabled = ExtResource("5_ty8cg")
+texture_focused = ExtResource("3_gpms6")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="mouse_entered" from="play" to="." method="_on_play_mouse_entered"]
+[connection signal="pressed" from="play" to="." method="play"]

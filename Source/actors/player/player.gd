@@ -66,7 +66,7 @@ func _physics_process(delta) -> void:
 	velocity = lerp(velocity, targetVel, delta);
 	# Do jumping
 	if (input.isJumping && is_on_floor()):
-		velocity.y = jumpSpeed;
+		velocity.y = jumpSpeed * clamp((abs(velocity.x) * 1.5 + 50) / speed.x, 0.5, 1);
 		audio_jump.play();
 		hasLetGo = false;
 	if Input.is_action_just_released("ui_up") && Controller.IsControlPlayer() && velocity.y < 0 && not hasLetGo:
@@ -106,7 +106,8 @@ func UpdateMoveState() -> void:
 				var sf: SpriteFrames = sprite.sprite_frames;
 				var fc: int = sf.get_frame_count("die") - 1;
 				if sprite.frame == fc:
-					get_tree().reload_current_scene()
+					Trans.ReloadScene()
+					state = MovementStates.MAX
 		_:
 			pass;
 

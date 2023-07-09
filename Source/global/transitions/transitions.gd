@@ -5,17 +5,20 @@ extends Control
 var isTransitioning: bool = false;
 
 func ChangeSceneToPacked(next: PackedScene) -> void:
-	_change(next, "change_scene_to_packed")
+	_change([next], "change_scene_to_packed")
 
 func ChangeSceneToFile(next: String) -> void:
-	_change(next, "change_scene_to_file")
+	_change([next], "change_scene_to_file")
 
-func _change(next, funcPtr: StringName):
+func ReloadScene() -> void:
+	_change([], "reload_current_scene")
+
+func _change(next: Array, funcPtr: StringName):
 	if isTransitioning: return;
 	_localpause = 0.0;
 	anim.play("trans");
 	await anim.animation_finished;
-	get_tree().call(funcPtr, next);
+	get_tree().callv(funcPtr, next);
 	await get_tree().process_frame;
 	anim.play_backwards("trans");
 	await anim.animation_finished;
