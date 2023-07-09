@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dcqavnrrd1bdc"]
+[gd_scene load_steps=6 format=3 uid="uid://dcqavnrrd1bdc"]
 
 [ext_resource type="Script" path="res://global/audio/audio.gd" id="1_wcdm3"]
 [ext_resource type="AudioStream" uid="uid://6kf8h1suphip" path="res://audio/msuic/soonggg.ogg" id="2_7qd6a"]
 [ext_resource type="AudioStream" uid="uid://y88k36n2ajnq" path="res://audio/msuic/soonggg_Intro.ogg" id="3_gxpit"]
 [ext_resource type="AudioStream" uid="uid://b71ef0n4u7gat" path="res://audio/msuic/winn.ogg" id="4_43icp"]
+[ext_resource type="AudioStream" uid="uid://by1basyuy1pg8" path="res://audio/sfx/coin/purpcoin.ogg" id="5_nib87"]
 
 [node name="audio" type="Node2D"]
 script = ExtResource("1_wcdm3")
@@ -20,5 +21,8 @@ autoplay = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="winnshiz"]
 stream = ExtResource("4_43icp")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="winnshiz"]
+stream = ExtResource("5_nib87")
 
 [connection signal="finished" from="tb2" to="." method="introfinished"]
