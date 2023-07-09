@@ -56,6 +56,7 @@ class button extends RefCounted:
 
 func _ready() -> void:
 	$Label2.text = Stats.GetStatsString();
+	Audio.YouWinYay();
 
 func _input(event):
 	if !event is InputEventMouseButton: return;
@@ -66,5 +67,6 @@ func _process(_delta) -> void:
 	toMenu.Update();
 
 func switchToMenu() -> void:
+	Audio.BackToMenu();
 	Trans.ChangeSceneToFile("res://scenes/menu/menu.tscn")
 

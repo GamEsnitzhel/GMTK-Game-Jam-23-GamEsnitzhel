@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var theme_intro: AudioStreamPlayer = $tb2
 @onready var theme_body: AudioStreamPlayer = $tb
+@onready var theme_victory: AudioStreamPlayer = $winnshiz/iwinggez
 
 var toggleAudio = 0;
 
@@ -35,3 +36,12 @@ func PurpleCoin() -> void:
 
 func Switch() -> void:
 	sound_switch.play();
+
+func YouWinYay() -> void:
+	theme_victory.play();
+	theme_intro.stop();
+	theme_body.stop();
+
+func BackToMenu() -> void:
+	theme_victory.stop();
+	theme_intro.play();
