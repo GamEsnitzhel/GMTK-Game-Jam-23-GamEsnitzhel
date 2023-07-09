@@ -49,6 +49,6 @@ func GetStatsString() -> String:
 	toReturn += "\nPlayer Deaths: " + str(deaths);
 	toReturn += "\nEnemies Killed: " + str(enemies_killed);
 	toReturn += "\nPurple Coins Lost: " + str(purple_coins_collected);
-	toReturn += "\nPurple Coins Captured: " + str(purple_coins_saved);
+	toReturn += "\nPurple Coins Captured: " + str(purple_coins_saved) + "/4";
 
 	return toReturn

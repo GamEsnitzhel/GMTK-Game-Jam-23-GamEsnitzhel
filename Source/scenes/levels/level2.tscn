@@ -80,28 +80,3 @@ layer_2/tile_data = PackedInt32Array(-1, 2, 65536, -196605, 65536, 4, -262141, 6
 position = Vector2(4034, -6.00001)
 scale = Vector2(12.4, 7.28)
 path = "res://scenes/end/endscene.tscn"
-
-[connection signal="mouse_entered" from="TileMap/enemy" to="TileMap/enemy" method="_on_mouse_entered" flags=18]
-[connection signal="mouse_exited" from="TileMap/enemy" to="TileMap/enemy" method="_on_mouse_exited" flags=18]
-[connection signal="mouse_entered" from="TileMap/@CharacterBody2D@198833" to="TileMap/@CharacterBody2D@198833" method="_on_mouse_entered" flags=18]
-[connection signal="mouse_exited" from="TileMap/@CharacterBody2D@198833" to="TileMap/@CharacterBody2D@198833" method="_on_mouse_exited" flags=18]
-[connection signal="mouse_entered" from="TileMap/@CharacterBody2D@198835" to="TileMap/@CharacterBody2D@198835" method="_on_mouse_entered" flags=18]
-[connection signal="mouse_exited" from="TileMap/@CharacterBody2D@198835" to="TileMap/@CharacterBody2D@198835" method="_on_mouse_exited" flags=18]
-[connection signal="mouse_entered" from="TileMap/@CharacterBody2D@198844" to="TileMap/@CharacterBody2D@198844" method="_on_mouse_entered" flags=18]
-[connection signal="mouse_exited" from="TileMap/@CharacterBody2D@198844" to="TileMap/@CharacterBody2D@198844" method="_on_mouse_exited" flags=18]
-[connection signal="mouse_entered" from="TileMap/@CharacterBody2D@198846" to="TileMap/@CharacterBody2D@198846" method="_on_mouse_entered" flags=18]
-[connection signal="mouse_exited" from="TileMap/@CharacterBody2D@198846" to="TileMap/@CharacterBody2D@198846" method="_on_mouse_exited" flags=18]
-[connection signal="mouse_entered" from="TileMap/@CharacterBody2D@198855" to="TileMap/@CharacterBody2D@198855" method="_on_mouse_entered" flags=18]
-[connection signal="mouse_exited" from="TileMap/@CharacterBody2D@198855" to="TileMap/@CharacterBody2D@198855" method="_on_mouse_exited" flags=18]
-[connection signal="mouse_entered" from="TileMap/@CharacterBody2D@198857" to="TileMap/@CharacterBody2D@198857" method="_on_mouse_entered" flags=18]
-[connection signal="mouse_exited" from="TileMap/@CharacterBody2D@198857" to="TileMap/@CharacterBody2D@198857" method="_on_mouse_exited" flags=18]
-[connection signal="body_entered" from="TileMap/coin" to="TileMap/coin" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/purplecoin" to="TileMap/purplecoin" method="_on_body_entered" flags=18]
-[connection signal="mouse_entered" from="TileMap/@CharacterBody2D@198863" to="TileMap/@CharacterBody2D@198863" method="_on_mouse_entered" flags=18]
-[connection signal="mouse_exited" from="TileMap/@CharacterBody2D@198863" to="TileMap/@CharacterBody2D@198863" method="_on_mouse_exited" flags=18]
-[connection signal="mouse_entered" from="TileMap/@CharacterBody2D@198879" to="TileMap/@CharacterBody2D@198879" method="_on_mouse_entered" flags=18]
-[connection signal="mouse_exited" from="TileMap/@CharacterBody2D@198879" to="TileMap/@CharacterBody2D@198879" method="_on_mouse_exited" flags=18]
-[connection signal="mouse_entered" from="TileMap/@CharacterBody2D@198882" to="TileMap/@CharacterBody2D@198882" method="_on_mouse_entered" flags=18]
-[connection signal="mouse_exited" from="TileMap/@CharacterBody2D@198882" to="TileMap/@CharacterBody2D@198882" method="_on_mouse_exited" flags=18]
-[connection signal="mouse_entered" from="TileMap/@CharacterBody2D@198888" to="TileMap/@CharacterBody2D@198888" method="_on_mouse_entered" flags=18]
-[connection signal="mouse_exited" from="TileMap/@CharacterBody2D@198888" to="TileMap/@CharacterBody2D@198888" method="_on_mouse_exited" flags=18]
