@@ -80,9 +80,9 @@ position = Vector2(2594, -370)
 scale = Vector2(33.8, 4.88)
 path = "res://scenes/levels/level1.tscn"
 
-[connection signal="body_entered" from="TileMap/purplecoin" to="TileMap/purplecoin" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/coin" to="TileMap/coin" method="_on_body_entered" flags=18]
-[connection signal="mouse_entered" from="TileMap/enemy" to="TileMap/enemy" method="_on_mouse_entered" flags=18]
-[connection signal="mouse_exited" from="TileMap/enemy" to="TileMap/enemy" method="_on_mouse_exited" flags=18]
-[connection signal="mouse_entered" from="TileMap/@CharacterBody2D@219458" to="TileMap/@CharacterBody2D@219458" method="_on_mouse_entered" flags=18]
-[connection signal="mouse_exited" from="TileMap/@CharacterBody2D@219458" to="TileMap/@CharacterBody2D@219458" method="_on_mouse_exited" flags=18]
+[connection signal="body_entered" from="TileMap/@Area2D@30275" to="TileMap/@Area2D@30275" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Area2D@30281" to="TileMap/@Area2D@30281" method="_on_body_entered" flags=18]
+[connection signal="mouse_entered" from="TileMap/@CharacterBody2D@30288" to="TileMap/@CharacterBody2D@30288" method="_on_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="TileMap/@CharacterBody2D@30288" to="TileMap/@CharacterBody2D@30288" method="_on_mouse_exited" flags=18]
+[connection signal="mouse_entered" from="TileMap/@CharacterBody2D@30300" to="TileMap/@CharacterBody2D@30300" method="_on_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="TileMap/@CharacterBody2D@30300" to="TileMap/@CharacterBody2D@30300" method="_on_mouse_exited" flags=18]
